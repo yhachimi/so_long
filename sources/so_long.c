@@ -6,7 +6,7 @@
 /*   By: yhachimi <hachimiyounes1337@gmail.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 19:05:00 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/03 19:27:12 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/03 20:06:47 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,9 @@ char	*read_map(int fd)
 	char	*av;
 	char	*tmp;
 
-	if (fd <= 0)
+	av = NULL;
+	if (fd < 0)
 		return (NULL);
-	av = malloc(1);
-	if (!av)
-		return (NULL);
-	av = '\0';
 	while (1)
 	{
 		tmp = get_next_line(fd);
