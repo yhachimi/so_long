@@ -6,7 +6,7 @@
 /*   By: yhachimi <hachimiyounes1337@gmail.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 19:05:00 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/03 19:08:04 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/03 19:27:12 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int	check_map_boarder(char **map, int height, int width)
 				return (0);
 			if (colm == width - 1 && map[row][colm] != '1')
 				return (0);
+			colm++;
 		}
 		row++;
 	}
@@ -74,5 +75,15 @@ int	main(void)
 	width = 0;
 	while (map[0][width])
 		width++;
+	if (!check_map_boarder(map, height, width))
+	{
+		free_all(map, height);
+		free(str);
+		close(fd);
+		return (1);
+	}
+	free(str);
+	free_all(map, height);
+	close(fd);
 	return (0);
 }

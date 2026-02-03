@@ -6,7 +6,7 @@
 /*   By: yhachimi <yhachimi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 15:46:57 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/03 18:28:36 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/03 19:24:28 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../libs/get_next_line.h"
@@ -104,6 +104,8 @@ char	*get_next_line(int fd)
 		tmp = NULL;
 		return (NULL);
 	}
+	if (line[0] == '\0')
+		free(line);
 	tmp = del_cat(tmp);
 	return (line);
 }

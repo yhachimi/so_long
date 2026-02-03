@@ -6,12 +6,12 @@
 /*   By: yhachimi <yhachimi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 15:17:37 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/03 18:49:02 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/03 19:16:25 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../libs/so_long.h"
 
-static	void	*free_all(char **p, size_t len)
+void	*free_all(char **p, size_t len)
 {
 	while (len)
 	{

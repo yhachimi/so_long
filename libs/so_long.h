@@ -6,7 +6,7 @@
 /*   By: yhachimi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/31 20:14:10 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/03 19:09:32 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/03 19:16:40 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef SO_LONG_H
@@ -19,6 +19,7 @@
 
 char	**ft_split(char const *s, char c);
 size_t	count(char const *s, char c);
+void	*free_all(char **p, size_t len);
 typedef struct s_data
 {
 	void	*mlx_ptr;
