@@ -6,56 +6,11 @@
 /*   By: yhachimi <hachimiyounes1337@gmail.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 19:05:00 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/03 20:06:47 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/04 11:49:28 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libs/so_long.h"
-
-char	*read_map(int fd)
-{
-	char	*av;
-	char	*tmp;
-
-	av = NULL;
-	if (fd < 0)
-		return (NULL);
-	while (1)
-	{
-		tmp = get_next_line(fd);
-		if (!tmp)
-			return (av);
-		av = ft_strjoin(av, tmp);
-		free(tmp);
-	}
-}
-
-int	check_map_boarder(char **map, int height, int width)
-{
-	int	row;
-	int	colm;
-
-	row = 0;
-	colm = 0;
-	while (row < height)
-	{
-		colm = 0;
-		while (map[row][colm])
-		{
-			if (row == 0 && map[row][colm] != '1')
-				return (0);
-			if (row == height - 1 && map[row][colm] != '1')
-				return (0);
-			if (colm == 0 && map[row][colm] != '1')
-				return (0);
-			if (colm == width - 1 && map[row][colm] != '1')
-				return (0);
-			colm++;
-		}
-		row++;
-	}
-	return (1);
-}
 
 int	main(void)
 {
