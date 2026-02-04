@@ -6,7 +6,7 @@
 /*   By: yhachimi <hachimiyounes1337@gmail.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 11:45:11 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/04 12:22:38 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/04 18:50:15 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../libs/so_long.h"
@@ -58,17 +58,13 @@ int	check_map_boarder(char **map, int height, int width)
 	return (1);
 }
 
-int	check_the_map_chars(char **map, int height)
+int	check_the_map_chars(int e, int c, char **map, int height)
 {
 	int	row;
 	int	colm;
-	int	c;
-	int	e;
 	int	p;
 
 	row = 0;
-	c = 0;
-	e = 0;
 	p = 0;
 	while (row < height)
 	{
@@ -90,7 +86,50 @@ int	check_the_map_chars(char **map, int height)
 	return (1);
 }
 
-void	check_valid_path(char **map, int height, int width)
+static int	help_check(char **map, int height, int width)
 {
-	return ;
+	int	row;
+	int	colm;
+
+	row = 0;
+	while (row < height)
+	{
+		colm = 0;
+		while (map[row][colm])
+		{
+			if (map[row][colm] == 'E')
+				return (0);
+			colm++;
+		}
+		row++;
+	}
+	return (1);
+}
+
+int	check_valid_path(char **map, int h, int w)
+{
+	t_size	size;
+	int		row;
+	int		colm;
+
+	if (!map || !*map)
+		return (0);
+	row = 0;
+	colm = 0;
+	size.height = h;
+	size.width = w;
+	while (row < size.height)
+	{
+		colm = 0;
+		while (map[row][colm])
+		{
+			if (map[row][colm] == 'P')
+				break ;
+			colm++;
+		}
+		if (map[row][colm] == 'P')
+			break ;
+	}
+	flood_fill(map, row, colm, size);
+	return (help_check(map, h, w));
 }

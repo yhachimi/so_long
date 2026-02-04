@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yhachimi <yhachimi@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: yhachimi <hachimiyounes1337@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/19 15:17:37 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/03 20:04:10 by yhachimi         ###   ########.fr       */
+/*   Created: 2026/02/04 19:11:39 by yhachimi          #+#    #+#             */
+/*   Updated: 2026/02/04 19:11:41 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../libs/so_long.h"
 
 void	*free_all(char **p, size_t len)
@@ -62,7 +63,7 @@ static char	*dup_word(char const *s, char c)
 	size_t	len;
 
 	len = split_len(s, c);
-	p = malloc (len + 1);
+	p = malloc(len + 1);
 	i = 0;
 	if (!p)
 		return (NULL);
