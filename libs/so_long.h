@@ -6,7 +6,7 @@
 /*   By: yhachimi <yhachimi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:25:38 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/06 11:25:42 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/06 12:02:59 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct s_size
 }			t_size;
 
 void		flood_fill(char **map, int x, int y, t_size size);
-void    	ft_putchar_fd(char c, int fd);
+void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char *s, int fd);
 void		ft_putend(char *s, int fd);
 void		*free_all(char **p, size_t len);
