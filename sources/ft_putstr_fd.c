@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flood_fill.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yhachimi <yhachimi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/06 11:24:23 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/06 11:24:29 by yhachimi         ###   ########.fr       */
+/*   Created: 2026/02/06 12:01:00 by yhachimi          #+#    #+#             */
+/*   Updated: 2026/02/06 12:01:00 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../libs/so_long.h"
 
-void	flood_fill(char **map, int x, int y, t_size size)
+void	ft_putstr_fd(char *s, int fd)
 {
-	if ((x < 0 || y < 0) || (x > size.height || y > size.width))
-		return ;
-	if (map[x][y] == 'V' || map[x][y] == '1')
-		return ;
-	map[x][y] = 'V';
-	flood_fill(map, (x + 1), y, size);
-	flood_fill(map, (x - 1), y, size);
-	flood_fill(map, x, (y + 1), size);
-	flood_fill(map, x, (y - 1), size);
+	while (*s)
+	{
+		ft_putchar_fd(*s, fd);
+		s++;
+	}
 }

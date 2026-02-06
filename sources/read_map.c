@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yhachimi <hachimiyounes1337@gmail.com      +#+  +:+       +#+        */
+/*   By: yhachimi <yhachimi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/04 11:45:11 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/04 18:50:15 by yhachimi         ###   ########.fr       */
+/*   Created: 2026/02/06 11:24:53 by yhachimi          #+#    #+#             */
+/*   Updated: 2026/02/06 11:52:54 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../libs/so_long.h"
 
 char	*read_map(int fd)
@@ -44,13 +45,13 @@ int	check_map_boarder(char **map, int height, int width)
 		while (map[row][colm])
 		{
 			if (row == 0 && map[row][colm] != '1')
-				return (0);
+				return (ft_putend("Error: Invalid map border", 2), 0);
 			if (row == height - 1 && map[row][colm] != '1')
-				return (0);
+				return (ft_putend("Error: Invalid map border", 2), 0);
 			if (colm == 0 && map[row][colm] != '1')
-				return (0);
+				return (ft_putend("Error: Invalid map border", 2), 0);
 			if (colm == width - 1 && map[row][colm] != '1')
-				return (0);
+				return (ft_putend("Error: Invalid map border", 2), 0);
 			colm++;
 		}
 		row++;
@@ -81,12 +82,12 @@ int	check_the_map_chars(int e, int c, char **map, int height)
 		}
 		row++;
 	}
-	if (p != 1 | e != 1 | c <= 0)
-		return (0);
+	if (p != 1 || e != 1 || c <= 0)
+		return (ft_putend("Error: Bad character input", 2), 0);
 	return (1);
 }
 
-static int	help_check(char **map, int height, int width)
+static int	help_check(char **map, int height)
 {
 	int	row;
 	int	colm;
@@ -98,7 +99,10 @@ static int	help_check(char **map, int height, int width)
 		while (map[row][colm])
 		{
 			if (map[row][colm] == 'E')
+			{
+				ft_putend("Error: no path found to the exit", 2);
 				return (0);
+			}
 			colm++;
 		}
 		row++;
@@ -129,7 +133,8 @@ int	check_valid_path(char **map, int h, int w)
 		}
 		if (map[row][colm] == 'P')
 			break ;
+		row++;
 	}
 	flood_fill(map, row, colm, size);
-	return (help_check(map, h, w));
+	return (help_check(map, h));
 }
