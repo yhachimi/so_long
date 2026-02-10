@@ -6,7 +6,7 @@
 /*   By: yhachimi <yhachimi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:24:53 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/10 14:55:13 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/10 15:03:51 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,9 +98,9 @@ static int	help_check(char **map, int height)
 		colm = 0;
 		while (map[row][colm])
 		{
-			if (map[row][colm] == 'E')
+			if (map[row][colm] == 'E' || map[row][colm] == 'C')
 			{
-				ft_putend("Error: no path found to the exit", 2);
+				ft_putend("Error: no path found to (exit/coins)", 2);
 				return (0);
 			}
 			colm++;
