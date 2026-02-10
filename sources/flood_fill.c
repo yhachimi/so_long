@@ -19,7 +19,7 @@ void	set_moves(t_moves *moves, int row, int colm)
 
 void	flood_fill(char **map, int x, int y, t_size size)
 {
-	if ((x < 0 || y < 0) || (x > size.height || y > size.width))
+	if ((x < 0 || y < 0) || (x >= size.height || y >= size.width))
 		return ;
 	if (map[x][y] == 'V' || map[x][y] == '1')
 		return ;

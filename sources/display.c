@@ -6,19 +6,27 @@
 /*   By: yhachimi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:13:44 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/10 14:28:23 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/10 16:49:28 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../libs/so_long.h"
 
 int	hook_key(int keycode, t_data *data)
 {
+	static int	mvs;
+
 	if (keycode == 32)
 		mlx_loop_end(data->mlx_ptr);
+	if (keycode == 119)
+	{
+		mvs += 1;
+		mlx_clear_window(data->mlx_ptr, data->win_ptr);
+		display_moves(data, mvs);
+	}
 	return (0);
 }
 
-static int	calc_cell_size(t_data *data)
+static void	calc_cell_size(t_data *data)
 {
 	data->cell_size = 40;
 	data->bordr = 3;
