@@ -6,10 +6,16 @@
 /*   By: yhachimi <yhachimi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:24:23 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/06 11:24:29 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/10 14:56:52 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../libs/so_long.h"
+
+void	set_moves(t_moves *moves, int row, int colm)
+{
+	moves->start[0] = row;
+	moves->start[1] = colm;
+}
 
 void	flood_fill(char **map, int x, int y, t_size size)
 {

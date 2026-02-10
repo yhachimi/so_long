@@ -6,7 +6,7 @@
 /*   By: yhachimi <yhachimi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:25:38 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/06 12:02:59 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/10 14:56:12 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,24 +20,35 @@
 
 char		**ft_split(char const *s, char c);
 size_t		count(char const *s, char c);
+typedef struct s_moves
+{
+	int		x;
+	int		y;
+	int		start[2];
+	int		end;
+}			t_moves;
 
 typedef struct s_data
 {
 	void	*mlx_ptr;
 	void	*data;
+	int		win_height;
+	int		win_width;
+	int		bordr;
+	int		cell_size;
 	char	**map;
+	char	*path;
 	void	*win_ptr;
 	int		fd;
 	int		height;
 	int		width;
-	int		color;
 }			t_data;
 typedef struct s_size
 {
 	int		height;
 	int		width;
 }			t_size;
-
+void		set_moves(t_moves *moves, int row, int colm);
 void		flood_fill(char **map, int x, int y, t_size size);
 void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char *s, int fd);
@@ -46,6 +57,6 @@ void		*free_all(char **p, size_t len);
 int			check_map_boarder(char **map, int height, int width);
 int			check_the_map_chars(int e, int c, char **map, int height);
 char		*read_map(int fd);
-int			check_valid_path(char **map, int h, int w);
-
+int			check_valid_path(char **map, int h, int w, t_moves *moves);
+void		display(t_data *data, t_moves *moves);
 #endif

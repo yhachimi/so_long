@@ -6,7 +6,7 @@
 /*   By: yhachimi <yhachimi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:24:53 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/06 11:52:54 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/10 14:55:13 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ static int	help_check(char **map, int height)
 	return (1);
 }
 
-int	check_valid_path(char **map, int h, int w)
+int	check_valid_path(char **map, int h, int w, t_moves *moves)
 {
 	t_size	size;
 	int		row;
@@ -136,5 +136,5 @@ int	check_valid_path(char **map, int h, int w)
 		row++;
 	}
 	flood_fill(map, row, colm, size);
-	return (help_check(map, h));
+	return (set_moves(moves, row, colm), help_check(map, h));
 }
