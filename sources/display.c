@@ -6,7 +6,7 @@
 /*   By: yhachimi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:13:44 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/11 17:49:16 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/11 18:11:49 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../libs/so_long.h"
@@ -30,6 +30,7 @@ int	hook_key(int keycode, t_data *data)
 		else
 			mvs += 1;
 		put_all_chars(data);
+		ft_putend(ft_itoa(mvs), 1);
 		display_moves(data, mvs);
 	}
 	if (keycode == 100)
@@ -44,6 +45,7 @@ int	hook_key(int keycode, t_data *data)
 		else
 			mvs += 1;
 		put_all_chars(data);
+		ft_putend(ft_itoa(mvs), 1);
 		display_moves(data, mvs);
 	}
 	if (keycode == 97)
@@ -58,6 +60,7 @@ int	hook_key(int keycode, t_data *data)
 		else
 			mvs += 1;
 		put_all_chars(data);
+		ft_putend(ft_itoa(mvs), 1);
 		display_moves(data, mvs);
 	}
 	if (keycode == 115)
@@ -72,6 +75,7 @@ int	hook_key(int keycode, t_data *data)
 		else
 			mvs += 1;
 		put_all_chars(data);
+		ft_putend(ft_itoa(mvs), 1);
 		display_moves(data, mvs);
 	}
 	return (0);
