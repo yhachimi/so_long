@@ -6,12 +6,36 @@
 /*   By: yhachimi <yhachimi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:53:30 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/06 11:53:33 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/11 17:31:57 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libs/so_long.h"
 
+int	check_coins(t_data *data)
+{
+	int	x;
+	int	y;
+
+	x = 0;
+	data->coins_size = 0;
+	while (x < data->height)
+	{
+		y = 0;
+		while (data->map[x][y])
+		{
+			if (data->map[x][y] == 'C')
+			{
+				data->coins_size += 1;
+			}
+			y++;
+		}
+		x++;
+	}
+	if (data->coins_size == 0)
+		return (0);
+	return (1);
+}
 void	ft_putend(char *s, int fd)
 {
 	ft_putstr_fd(s, fd);

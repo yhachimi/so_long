@@ -6,7 +6,7 @@
 /*   By: yhachimi <yhachimi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:25:38 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/11 14:10:38 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/11 17:23:14 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,11 @@ typedef struct s_imags
 	void	*down_wall;
 	void	*rd;
 	void	*ru;
+	void	*coin;
 	void	*rl;
 	void	*rr;
 	void	*path;
+	void	*portal;
 }			t_image;
 typedef struct s_data
 {
@@ -59,6 +61,8 @@ typedef struct s_data
 	int		fd;
 	int		height;
 	int		width;
+	void	*pd;
+	int		coins_size;
 	t_moves	moves;
 	t_image	images;
 }			t_data;
@@ -68,6 +72,8 @@ typedef struct s_size
 	int		width;
 }			t_size;
 char		*ft_itoa(int n);
+int			check_coins(t_data *data);
+int			display_map(t_data *data, t_image *images);
 void		set_moves(t_moves *moves, int row, int colm);
 void		put_image(t_data *data, int x, int y);
 void		*gen_image(char *img_path, t_data *data);

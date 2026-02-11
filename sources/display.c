@@ -6,7 +6,7 @@
 /*   By: yhachimi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:13:44 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/11 14:10:00 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/11 17:49:16 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../libs/so_long.h"
@@ -20,8 +20,58 @@ int	hook_key(int keycode, t_data *data)
 		mlx_loop_end(data->mlx_ptr);
 	if (keycode == 119)
 	{
-		mvs += 1;
 		mlx_clear_window(data->mlx_ptr, data->win_ptr);
+		display_map(data, &data->images);
+		data->moves.start[0] -= 1;
+		if (data->map[data->moves.start[0]][data->moves.start[1]] == '1'
+			|| (data->map[data->moves.start[0]][data->moves.start[1]] == 'E')
+			&& check_coins(data))
+			data->moves.start[0] += 1;
+		else
+			mvs += 1;
+		put_all_chars(data);
+		display_moves(data, mvs);
+	}
+	if (keycode == 100)
+	{
+		mlx_clear_window(data->mlx_ptr, data->win_ptr);
+		display_map(data, &data->images);
+		data->moves.start[1] += 1;
+		if (data->map[data->moves.start[0]][data->moves.start[1]] == '1'
+			|| (data->map[data->moves.start[0]][data->moves.start[1]] == 'E')
+			&& check_coins(data))
+			data->moves.start[1] -= 1;
+		else
+			mvs += 1;
+		put_all_chars(data);
+		display_moves(data, mvs);
+	}
+	if (keycode == 97)
+	{
+		mlx_clear_window(data->mlx_ptr, data->win_ptr);
+		display_map(data, &data->images);
+		data->moves.start[1] -= 1;
+		if (data->map[data->moves.start[0]][data->moves.start[1]] == '1'
+			|| (data->map[data->moves.start[0]][data->moves.start[1]] == 'E')
+			&& check_coins(data))
+			data->moves.start[1] += 1;
+		else
+			mvs += 1;
+		put_all_chars(data);
+		display_moves(data, mvs);
+	}
+	if (keycode == 115)
+	{
+		mlx_clear_window(data->mlx_ptr, data->win_ptr);
+		display_map(data, &data->images);
+		data->moves.start[0] += 1;
+		if (data->map[data->moves.start[0]][data->moves.start[1]] == '1'
+			|| (data->map[data->moves.start[0]][data->moves.start[1]] == 'E')
+			&& check_coins(data))
+			data->moves.start[0] -= 1;
+		else
+			mvs += 1;
+		put_all_chars(data);
 		display_moves(data, mvs);
 	}
 	return (0);
@@ -48,6 +98,8 @@ void	init_images(t_image *images, t_data *data)
 	images->m_wall = gen_image("chrs/midle_wall.xpm", data);
 	images->down_wall = gen_image("chrs/down_wall.xpm", data);
 	images->left_wall = gen_image("chrs/left_wall.xpm", data);
+	images->portal = gen_image("chrs/portal.xpm", data);
+	images->coin = gen_image("chrs/coin.xpm", data);
 	data->images = *images;
 }
 
