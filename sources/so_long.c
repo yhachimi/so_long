@@ -6,7 +6,7 @@
 /*   By: yhachimi <yhachimi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:23:26 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/10 15:55:25 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/11 14:08:49 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ static int	parsing_help(t_data data, t_moves *moves)
 static int	map_read(t_data *data, t_moves *moves)
 {
 	char	*str;
+	char	**tmp;
 
 	data->fd = open(data->path, O_RDONLY);
 	str = read_map(data->fd);
@@ -40,13 +41,16 @@ static int	map_read(t_data *data, t_moves *moves)
 		return (close(data->fd), 1);
 	data->height = count(str, '\n');
 	data->map = ft_split(str, '\n');
-	if (!data->map)
+	tmp = ft_split(str, '\n');
+	if (!data->map || !tmp)
 		return ((close(data->fd), free(str), 1));
 	data->width = 0;
 	while (data->map[0][data->width])
 		data->width++;
 	if (parsing_help(*data, moves))
 		return (free_exit(*data, str, 1));
+	free_all(data->map, data->height);
+	data->map = tmp;
 	return (free(str), 0);
 }
 

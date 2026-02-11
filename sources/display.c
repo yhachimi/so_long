@@ -6,7 +6,7 @@
 /*   By: yhachimi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:13:44 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/11 13:39:39 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/11 14:10:00 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../libs/so_long.h"
@@ -70,9 +70,6 @@ int	display_map(t_data *data, t_image *images)
 		}
 		row++;
 	}
-	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->images.rd,
-		data->moves.start[0] * data->cell_size, data->moves.start[1]
-		* data->cell_size);
 }
 
 void	display(t_data *data, t_moves *moves)
@@ -89,5 +86,6 @@ void	display(t_data *data, t_moves *moves)
 	data->moves = *moves;
 	mlx_key_hook(data->win_ptr, hook_key, data);
 	display_map(data, &images);
+	put_all_chars(data);
 	mlx_loop(data->mlx_ptr);
 }
