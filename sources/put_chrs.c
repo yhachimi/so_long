@@ -6,15 +6,48 @@
 /*   By: yhachimi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 14:21:45 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/10 16:46:23 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/11 12:19:13 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../libs/so_long.h"
+
+void	display_image(t_data *data, t_image *images, int row, int colm)
+{
+	char	tile;
+	int		last_row;
+	int		last_col;
+
+	tile = data->map[row][colm];
+	last_row = data->height - 1;
+	last_col = data->width - 1;
+	if (tile == '1')
+	{
+		if (row == 0 && colm == 0)
+			data->img_ptr = images->ce_wall;
+		else if (row == 0 && colm == last_col)
+			data->img_ptr = images->re_wall;
+		else if (row == last_row && colm == 0)
+			data->img_ptr = images->lr_wall;
+		else if (row == last_row && colm == last_col)
+			data->img_ptr = images->lc_wall;
+		else if (row == 0 || row == last_row)
+			data->img_ptr = images->c_wall;
+		else if (colm == 0 || colm == last_col)
+			data->img_ptr = images->r_wall;
+		else
+			data->img_ptr = images->m_wall;
+	}
+	else
+		data->img_ptr = images->path;
+}
 
 int	display_moves(t_data *data, int moves)
 {
 	char	*str;
 
+	if (!data)
+		return (0);
 	str = ft_itoa(moves);
 	mlx_string_put(data->mlx_ptr, data->win_ptr, 10, 10, 0xFFFFFF, str);
+	return (1);
 }

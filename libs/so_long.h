@@ -6,7 +6,7 @@
 /*   By: yhachimi <yhachimi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:25:38 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/10 16:19:56 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/11 12:15:03 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,21 @@ typedef struct s_moves
 	int		start[2];
 	int		end;
 }			t_moves;
-
+typedef struct s_imags
+{
+	void	*r_wall;
+	void	*c_wall;
+	void	*re_wall;
+	void	*ce_wall;
+	void	*lc_wall;
+	void	*lr_wall;
+	void	*m_wall;
+	void	*rd;
+	void	*ru;
+	void	*rl;
+	void	*rr;
+	void	*path;
+}			t_image;
 typedef struct s_data
 {
 	void	*mlx_ptr;
@@ -52,7 +66,7 @@ typedef struct s_size
 char		*ft_itoa(int n);
 void		set_moves(t_moves *moves, int row, int colm);
 void		put_image(t_data *data, int x, int y);
-void		gen_image(char *img_path, t_data *data);
+void		*gen_image(char *img_path, t_data *data);
 void		flood_fill(char **map, int x, int y, t_size size);
 void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char *s, int fd);
@@ -64,4 +78,5 @@ char		*read_map(int fd);
 int			display_moves(t_data *data, int moves);
 int			check_valid_path(char **map, int h, int w, t_moves *moves);
 void		display(t_data *data, t_moves *moves);
+void		display_image(t_data *data, t_image *images, int row, int colm);
 #endif
