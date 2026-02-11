@@ -6,7 +6,7 @@
 /*   By: yhachimi <yhachimi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:25:38 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/11 17:23:14 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/11 18:35:03 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 # include "../minilibx-linux/mlx.h"
 # include "fcntl.h"
 # include "get_next_line.h"
-# include "stdio.h"
 # include "unistd.h"
 
 char		**ft_split(char const *s, char c);
