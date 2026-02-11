@@ -6,7 +6,7 @@
 /*   By: yhachimi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:13:44 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/11 12:16:36 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/11 13:39:39 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../libs/so_long.h"
@@ -46,9 +46,12 @@ void	init_images(t_image *images, t_data *data)
 	images->lc_wall = gen_image("chrs/end_swall.xpm", data);
 	images->lr_wall = gen_image("chrs/ends_nwall.xpm", data);
 	images->m_wall = gen_image("chrs/midle_wall.xpm", data);
+	images->down_wall = gen_image("chrs/down_wall.xpm", data);
+	images->left_wall = gen_image("chrs/left_wall.xpm", data);
+	data->images = *images;
 }
 
-int	test(t_data *data, t_image *images)
+int	display_map(t_data *data, t_image *images)
 {
 	int	row;
 	int	colm;
@@ -67,6 +70,9 @@ int	test(t_data *data, t_image *images)
 		}
 		row++;
 	}
+	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->images.rd,
+		data->moves.start[0] * data->cell_size, data->moves.start[1]
+		* data->cell_size);
 }
 
 void	display(t_data *data, t_moves *moves)
@@ -80,7 +86,8 @@ void	display(t_data *data, t_moves *moves)
 	data->win_ptr = mlx_new_window(data->mlx_ptr, data->win_width,
 			data->win_height, "so_long");
 	init_images(&images, data);
+	data->moves = *moves;
 	mlx_key_hook(data->win_ptr, hook_key, data);
-	test(data, &images);
+	display_map(data, &images);
 	mlx_loop(data->mlx_ptr);
 }

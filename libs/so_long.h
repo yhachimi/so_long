@@ -6,7 +6,7 @@
 /*   By: yhachimi <yhachimi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:25:38 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/11 12:15:03 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/11 13:30:17 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ typedef struct s_imags
 	void	*lc_wall;
 	void	*lr_wall;
 	void	*m_wall;
+	void	*left_wall;
+	void	*down_wall;
 	void	*rd;
 	void	*ru;
 	void	*rl;
@@ -57,6 +59,8 @@ typedef struct s_data
 	int		fd;
 	int		height;
 	int		width;
+	t_moves	moves;
+	t_image	images;
 }			t_data;
 typedef struct s_size
 {
