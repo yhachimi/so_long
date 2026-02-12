@@ -6,7 +6,7 @@
 /*   By: yhachimi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 14:21:45 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/11 13:25:56 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/12 12:36:49 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../libs/so_long.h"
@@ -66,5 +66,6 @@ int	display_moves(t_data *data, int moves)
 		return (0);
 	str = ft_itoa(moves);
 	mlx_string_put(data->mlx_ptr, data->win_ptr, 10, 10, 0xFFFFFF, str);
+	free(str);
 	return (1);
 }

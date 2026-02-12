@@ -6,7 +6,7 @@
 /*   By: yhachimi <yhachimi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:24:23 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/11 17:58:07 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/12 13:17:56 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../libs/so_long.h"
@@ -17,14 +17,32 @@ void	put_rect(t_data *data, void *img, int row, int colm)
 		* data->cell_size, row * data->cell_size);
 }
 
-void	put_all_chars(t_data *data)
+static void	draw_map_items(t_data *data, int px, int py)
 {
 	int	row;
-	int	colm;
+	int	col;
+
+	row = 0;
+	while (row < data->height)
+	{
+		col = 0;
+		while (col < data->width)
+		{
+			if (data->map[row][col] == 'C' && !(row == px && col == py))
+				put_rect(data, data->images.coin, row, col);
+			else if (data->map[row][col] == 'E')
+				put_rect(data, data->images.portal, row, col);
+			col++;
+		}
+		row++;
+	}
+}
+
+void	put_all_chars(t_data *data)
+{
 	int	x;
 	int	y;
 
-	row = 0;
 	x = data->moves.start[0];
 	y = data->moves.start[1];
 	if (data->map[x][y] != '1')
@@ -32,25 +50,13 @@ void	put_all_chars(t_data *data)
 		if (data->map[x][y] == 'E' && !check_coins(data))
 		{
 			mlx_loop_end(data->mlx_ptr);
-			return ;
+			free_display(data, &data->images);
+			exit(0);
 		}
-		else
-			put_rect(data, data->images.rd, x, y);
+		put_rect(data, data->images.rd, x, y);
 		data->map[x][y] = '0';
 	}
-	while (row < data->height)
-	{
-		colm = 0;
-		while (colm < data->width)
-		{
-			if (data->map[row][colm] == 'C' && data->map[x][y] != 'C')
-				put_rect(data, data->images.coin, row, colm);
-			else if (data->map[row][colm] == 'E')
-				put_rect(data, data->images.portal, row, colm);
-			colm++;
-		}
-		row++;
-	}
+	draw_map_items(data, x, y);
 }
 
 void	set_moves(t_moves *moves, int row, int colm)

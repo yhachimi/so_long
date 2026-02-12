@@ -1,6 +1,5 @@
 #minilibx-linux
 Name = so_long
-SRC = sources/so_long.c  sources/display.c sources/flood_fill.c sources/ft_putchar_fd.c sources/ft_putendl_fd.c sources/ft_putstr_fd.c sources/ft_split.c sources/get_next_line.c sources/get_next_line_utils.c sources/read_map.c sources/gen_image_ptr.c sources/put_chrs.c sources/ft_itoa.c
-
+SRC = sources/so_long.c  sources/display.c sources/flood_fill.c sources/ft_putchar_fd.c sources/ft_putendl_fd.c sources/ft_putstr_fd.c sources/ft_split.c sources/get_next_line.c sources/get_next_line_utils.c sources/read_map.c sources/gen_image_ptr.c sources/put_chrs.c sources/ft_itoa.c sources/free_display.c sources/init_image.c
 all:
 	cc $(SRC) -Lminilibx-linux -lmlx -lXext -lX11

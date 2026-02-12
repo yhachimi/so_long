@@ -6,7 +6,7 @@
 /*   By: yhachimi <yhachimi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:53:30 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/11 17:31:57 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/11 18:38:07 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	check_coins(t_data *data)
 		return (0);
 	return (1);
 }
+
 void	ft_putend(char *s, int fd)
 {
 	ft_putstr_fd(s, fd);

@@ -6,7 +6,7 @@
 /*   By: yhachimi <yhachimi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:25:38 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/11 18:35:03 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/12 13:02:42 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,8 @@ int			display_moves(t_data *data, int moves);
 int			check_valid_path(char **map, int h, int w, t_moves *moves);
 void		display(t_data *data, t_moves *moves);
 void		put_rect(t_data *data, void *img, int row, int colm);
+void		free_display(t_data *data, t_image *img);
 void		display_image(t_data *data, t_image *images, int row, int colm);
+void		init_images(t_image *images, t_data *data);
 void		put_all_chars(t_data *data);
 #endif
