@@ -6,7 +6,7 @@
 /*   By: yhachimi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:13:44 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/12 13:24:10 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/12 14:27:31 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../libs/so_long.h"
@@ -33,21 +33,25 @@ static void	move_player(t_data *data, int keycode, int *mvs)
 {
 	if (keycode == 119)
 	{
+		data->pd = data->images.ru;
 		data->moves.start[0] -= 1;
 		*mvs += 1;
 	}
 	else if (keycode == 115)
 	{
+		data->pd = data->images.rd;
 		data->moves.start[0] += 1;
 		*mvs += 1;
 	}
 	else if (keycode == 97)
 	{
+		data->pd = data->images.rl;
 		data->moves.start[1] -= 1;
 		*mvs += 1;
 	}
 	else if (keycode == 100)
 	{
+		data->pd = data->images.rr;
 		data->moves.start[1] += 1;
 		*mvs += 1;
 	}

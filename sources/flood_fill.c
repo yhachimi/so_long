@@ -6,7 +6,7 @@
 /*   By: yhachimi <yhachimi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:24:23 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/12 13:17:56 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/12 14:30:00 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../libs/so_long.h"
@@ -53,7 +53,7 @@ void	put_all_chars(t_data *data)
 			free_display(data, &data->images);
 			exit(0);
 		}
-		put_rect(data, data->images.rd, x, y);
+		put_rect(data, data->pd, x, y);
 		data->map[x][y] = '0';
 	}
 	draw_map_items(data, x, y);

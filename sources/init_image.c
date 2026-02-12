@@ -6,7 +6,7 @@
 /*   By: yhachimi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 13:00:43 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/12 13:01:28 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/12 14:31:04 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../libs/so_long.h"
@@ -28,6 +28,8 @@ void	init_images(t_image *images, t_data *data)
 	images->left_wall = gen_image("chrs/left_wall.xpm", data);
 	images->portal = gen_image("chrs/portal.xpm", data);
 	images->coin = gen_image("chrs/coin.xpm", data);
+	images->ru = gen_image("chrs/run/ru1.xpm", data);
+	data->pd = images->rd;
 	data->images = *images;
 }
 
