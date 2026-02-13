@@ -6,7 +6,7 @@
 /*   By: yhachimi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/13 13:05:27 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/13 15:53:25 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/13 17:05:55 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ typedef struct s_size
 	int		height;
 	int		width;
 }			t_size;
+int			close_exit(t_data *data);
 int			srearch_enemy(t_data *data);
 void		enemy_attack(t_data *data, int count, int row, int colm);
 void		enemy_attack(t_data *data, int count, int row, int colm);

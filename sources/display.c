@@ -6,7 +6,7 @@
 /*   By: yhachimi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:13:44 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/12 14:27:31 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/13 17:16:44 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../libs/so_long.h"
@@ -64,7 +64,7 @@ int	hook_key(int keycode, t_data *data)
 	static int	tmp;
 	char		*str;
 
-	if (keycode == 32)
+	if (keycode == 65307)
 	{
 		free_display(data, &data->images);
 		exit(0);
@@ -106,5 +106,6 @@ void	display(t_data *data, t_moves *moves)
 	mlx_key_hook(data->win_ptr, hook_key, data);
 	display_map(data, &images);
 	put_all_chars(data);
+	mlx_hook(data->win_ptr, 33, 0, close_exit, data);
 	mlx_loop(data->mlx_ptr);
 }

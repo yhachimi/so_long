@@ -6,7 +6,7 @@
 /*   By: yhachimi <yhachimi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:25:38 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/13 13:33:12 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/13 17:16:02 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ typedef struct s_size
 	int		height;
 	int		width;
 }			t_size;
+int			close_exit(t_data *data);
 int			ft_strcmp(const char s1, const char *s2);
 char		*ft_itoa(int n);
 int			check_coins(t_data *data);
