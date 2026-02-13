@@ -9,15 +9,22 @@ BONUS_OBJS:= $(BONUS_SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	cc $(OBJ) -Lminilibx-linux -lmlx -lXext -lX11 -o $(NAME)
+$(NAME): $(OBJ) libs/so_long.h
+	@cc $(OBJ) $(CFLAGS) -Lminilibx-linux -lmlx -lXext -lX11 -o $(NAME)
 
 %.o : %.c
-	cc $(CFLAGS) -c $< -o $@
+	@cc $(CFLAGS) -c $< -o $@
 
-bonus:
-	cc $(CFLAGS) $(BONUS_SRC)  -Lminilibx-linux -lmlx -lXext -lX11 -o $(NAME)
+bonus: $(BONUS_OBJS) libs/so_long_bonus.h
+	@touch bonus
+	@cc $(CFLAGS) $(BONUS_OBJS)  -Lminilibx-linux -lmlx -lXext -lX11 -o $(NAME)
 
 clean:
-	rm -rf $(OBJ) $(BONUS_OBJS)
+	@rm -rf $(OBJ) $(BONUS_OBJS)
 
+fclean: clean
+	@rm -rf $(NAME) bonus
+
+re: fclean all
+.PHONY : clean
+.SECONDARY: $(OBJ)
