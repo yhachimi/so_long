@@ -6,7 +6,7 @@
 /*   By: yhachimi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:13:44 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/13 17:16:28 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/13 17:21:04 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../libs/so_long_bonus.h"
@@ -61,8 +61,6 @@ static void	move_player(t_data *data, int keycode, int *mvs)
 int	hook_key(int keycode, t_data *data)
 {
 	static int	mvs;
-	static int	tmp;
-	char		*str;
 
 	if (keycode == 65307)
 	{
@@ -73,14 +71,6 @@ int	hook_key(int keycode, t_data *data)
 	display_map(data, &data->images);
 	move_player(data, keycode, &mvs);
 	put_all_chars(data);
-	if ((keycode == 119 || keycode == 100 || keycode == 97 || keycode == 115)
-		&& tmp != mvs)
-	{
-		str = ft_itoa(mvs);
-		ft_putend(str, 1);
-		free(str);
-	}
-	tmp = mvs;
 	display_moves(data, mvs);
 	return (0);
 }

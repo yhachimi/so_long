@@ -6,7 +6,7 @@
 /*   By: yhachimi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:13:44 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/13 17:16:44 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/13 17:21:46 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../libs/so_long.h"
@@ -81,7 +81,6 @@ int	hook_key(int keycode, t_data *data)
 		free(str);
 	}
 	tmp = mvs;
-	display_moves(data, mvs);
 	return (0);
 }
 
