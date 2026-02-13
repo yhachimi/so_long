@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display_enemy.c                                    :+:      :+:    :+:   */
+/*   display_enemy_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yhachimi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/13 14:15:54 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/13 16:02:01 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/13 16:47:41 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	enemy_show(t_data *data, int count, int row, int colm)
 		i = 0;
 	c = 0;
 	if (data->enemy_counts > 1)
-		c = 100000;
+		c = 10000000;
 	while (c < 451212111)
 		c++;
 	put_rect(data, data->images.enemy[i], row, colm);
