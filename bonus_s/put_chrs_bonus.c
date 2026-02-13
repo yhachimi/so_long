@@ -6,10 +6,10 @@
 /*   By: yhachimi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 14:21:45 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/13 13:13:28 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/13 13:15:29 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../libs/so_long.h"
+#include "../libs/so_long_bonus.h"
 
 static void	help_display(t_data *data, t_image *images, int row, int colm)
 {
@@ -40,7 +40,10 @@ static void	help_display(t_data *data, t_image *images, int row, int colm)
 
 void	display_image(t_data *data, t_image *images, int row, int colm)
 {
-	if (data->map[row][colm] == '1')
+	char	tile;
+
+	tile = data->map[row][colm];
+	if (tile == '1')
 	{
 		help_display(data, images, row, colm);
 		return ;

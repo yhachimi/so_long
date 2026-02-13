@@ -6,11 +6,11 @@
 /*   By: yhachimi <yhachimi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:23:26 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/13 13:54:29 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/13 15:55:07 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libs/so_long.h"
+#include "../libs/so_long_bonus.h"
 #include "stdio.h"
 
 static int	check_all_map(char **map, int height)
@@ -20,7 +20,7 @@ static int	check_all_map(char **map, int height)
 	char	*p;
 
 	row = 0;
-	p = "EPC10";
+	p = "EPC10M";
 	while (row < height)
 	{
 		colm = 0;
@@ -45,11 +45,11 @@ static int	free_exit(t_data data, char *str, int status)
 	return (status);
 }
 
-static int	parsing_help(t_data data, t_moves *moves)
+static int	parsing_help(t_data *data, t_moves *moves)
 {
-	if (!check_map_boarder(data.map, data.height, data.width)
-		|| !check_the_map_chars(0, 0, data.map, data.height)
-		|| !check_valid_path(data.map, data.height, data.width, moves))
+	if (!check_map_boarder(data->map, data->height, data->width)
+		|| !check_the_map_chars(data->map, data->height, data)
+		|| !check_valid_path(data->map, data->height, data->width, moves))
 		return (1);
 	return (0);
 }
@@ -71,7 +71,7 @@ static int	map_read(t_data *data, t_moves *moves)
 	data->width = 0;
 	while (data->map[0][data->width])
 		data->width++;
-	if (parsing_help(*data, moves))
+	if (parsing_help(data, moves))
 		return (free_exit(*data, str, 1));
 	free_all(data->map, data->height);
 	data->map = tmp;

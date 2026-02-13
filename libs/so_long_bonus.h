@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yhachimi <yhachimi@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: yhachimi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/06 11:25:38 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/13 13:33:12 by yhachimi         ###   ########.fr       */
+/*   Created: 2026/02/13 13:05:27 by yhachimi          #+#    #+#             */
+/*   Updated: 2026/02/13 15:53:25 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 # include "../minilibx-linux/mlx.h"
 # include "fcntl.h"
 # include "get_next_line.h"
@@ -43,6 +43,8 @@ typedef struct s_imags
 	void	*rl;
 	void	*rr;
 	void	*path;
+	void	*enemy[4];
+	void	*atack[4];
 	void	*portal;
 }			t_image;
 typedef struct s_data
@@ -61,6 +63,8 @@ typedef struct s_data
 	int		height;
 	int		width;
 	void	*pd;
+	char	typ;
+	int		enemy_counts;
 	int		coins_size;
 	t_moves	moves;
 	t_image	images;
@@ -70,6 +74,9 @@ typedef struct s_size
 	int		height;
 	int		width;
 }			t_size;
+int			srearch_enemy(t_data *data);
+void		enemy_attack(t_data *data, int count, int row, int colm);
+void		enemy_attack(t_data *data, int count, int row, int colm);
 int			ft_strcmp(const char s1, const char *s2);
 char		*ft_itoa(int n);
 int			check_coins(t_data *data);
@@ -83,7 +90,7 @@ void		ft_putstr_fd(char *s, int fd);
 void		ft_putend(char *s, int fd);
 void		*free_all(char **p, size_t len);
 int			check_map_boarder(char **map, int height, int width);
-int			check_the_map_chars(int e, int c, char **map, int height);
+int			check_the_map_chars(char **map, int height, t_data *data);
 char		*read_map(int fd);
 int			display_moves(t_data *data, int moves);
 int			check_valid_path(char **map, int h, int w, t_moves *moves);

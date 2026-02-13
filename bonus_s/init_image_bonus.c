@@ -6,10 +6,22 @@
 /*   By: yhachimi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 13:00:43 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/13 13:14:34 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/13 15:06:50 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../libs/so_long.h"
+#include "../libs/so_long_bonus.h"
+
+static void	help_init_image(t_image *images, t_data *data)
+{
+	images->enemy[0] = gen_image("chrs/enemy/walk/w1.xpm", data);
+	images->enemy[1] = gen_image("chrs/enemy/walk/w2.xpm", data);
+	images->enemy[2] = gen_image("chrs/enemy/walk/w3.xpm", data);
+	images->enemy[3] = gen_image("chrs/enemy/walk/w4.xpm", data);
+	images->atack[0] = gen_image("chrs/enemy/attacks/l1.xpm", data);
+	images->atack[1] = gen_image("chrs/enemy/attacks/l2.xpm", data);
+	images->atack[2] = gen_image("chrs/enemy/attacks/l3.xpm", data);
+	images->atack[3] = gen_image("chrs/enemy/attacks/l4.xpm", data);
+}
 
 void	init_images(t_image *images, t_data *data)
 {
@@ -29,6 +41,7 @@ void	init_images(t_image *images, t_data *data)
 	images->portal = gen_image("chrs/portal.xpm", data);
 	images->coin = gen_image("chrs/coin.xpm", data);
 	images->ru = gen_image("chrs/run/ru1.xpm", data);
+	help_init_image(images, data);
 	data->pd = images->rd;
 	data->images = *images;
 }
