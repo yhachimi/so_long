@@ -6,7 +6,7 @@
 /*   By: yhachimi <yhachimi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 12:00:50 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/13 17:15:10 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/14 13:19:47 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	close_exit(t_data *data)
 {
-	free_display(data, &data->images);
 	mlx_loop_end(data->mlx_ptr);
+	free_display(data, &data->images);
 	exit(0);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: yhachimi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/13 12:56:44 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/13 17:06:12 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/14 13:20:39 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../libs/so_long_bonus.h"
@@ -38,8 +38,8 @@ static void	count_chars(char **map, int height, int *counts)
 
 int	close_exit(t_data *data)
 {
-	free_display(data, &data->images);
 	mlx_loop_end(data->mlx_ptr);
+	free_display(data, &data->images);
 	exit(0);
 	return (0);
 }
