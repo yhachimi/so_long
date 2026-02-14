@@ -6,7 +6,7 @@
 /*   By: yhachimi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/13 14:15:54 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/13 16:47:41 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/14 13:22:53 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	enemy_show(t_data *data, int count, int row, int colm)
 		i = 0;
 	c = 0;
 	if (data->enemy_counts > 1)
-		c = 10000000;
+		c = 451212111;
 	while (c < 451212111)
 		c++;
 	put_rect(data, data->images.enemy[i], row, colm);

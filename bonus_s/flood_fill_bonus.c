@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flood_fill.c                                       :+:      :+:    :+:   */
+/*   flood_fill_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yhachimi <yhachimi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:24:23 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/13 16:06:53 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/14 13:33:57 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../libs/so_long_bonus.h"
@@ -77,8 +77,13 @@ void	flood_fill(char **map, int x, int y, t_size size)
 {
 	if ((x < 0 || y < 0) || (x >= size.height || y >= size.width))
 		return ;
-	if (map[x][y] == 'V' || map[x][y] == '1')
+	if (map[x][y] == 'V' || map[x][y] == '1' || map[x][y] == 'M')
 		return ;
+	if (map[x][y] == 'E')
+	{
+		map[x][y] = 'V';
+		return ;
+	}
 	map[x][y] = 'V';
 	flood_fill(map, (x + 1), y, size);
 	flood_fill(map, (x - 1), y, size);

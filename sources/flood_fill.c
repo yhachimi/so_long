@@ -6,7 +6,7 @@
 /*   By: yhachimi <yhachimi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:24:23 by yhachimi          #+#    #+#             */
-/*   Updated: 2026/02/12 14:30:00 by yhachimi         ###   ########.fr       */
+/*   Updated: 2026/02/14 13:35:07 by yhachimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../libs/so_long.h"
@@ -71,6 +71,11 @@ void	flood_fill(char **map, int x, int y, t_size size)
 		return ;
 	if (map[x][y] == 'V' || map[x][y] == '1')
 		return ;
+	if (map[x][y] == 'E')
+	{
+		map[x][y] = 'V';
+		return ;
+	}
 	map[x][y] = 'V';
 	flood_fill(map, (x + 1), y, size);
 	flood_fill(map, (x - 1), y, size);
