@@ -1,4 +1,3 @@
-#minilibx-linux
 CFLAGS = -Wall -Wextra -Werror
 NAME = so_long
 BONUS_SRC =  bonus_s/so_long_bonus.c bonus_s/check_bonus.c bonus_s/display_bonus.c bonus_s/display_enemy_bonus.c bonus_s/flood_fill_bonus.c bonus_s/free_display_bonus.c bonus_s/ft_itoa_bonus.c bonus_s/ft_putchar_fd_bonus.c bonus_s/ft_putendl_fd_bonus.c bonus_s/ft_putstr_fd_bonus.c bonus_s/ft_split_bonus.c bonus_s/ft_strcmp_bonus.c bonus_s/gen_image_ptr_bonus.c bonus_s/get_next_line_bonus.c bonus_s/get_next_line_utils_bonus.c bonus_s/init_image_bonus.c bonus_s/put_chrs_bonus.c bonus_s/read_map_bonus.c
