@@ -149,10 +149,12 @@ Recompile:
 make re
 ```
 
-Compile Bonus part:
---```bash
+Compile BONUS PART:
+
+```bash
 make bonus
-```-
+```
+
 
 # ▶️ Usage
 
