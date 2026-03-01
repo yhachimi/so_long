@@ -188,12 +188,3 @@ Example:
 ✅ Bonus part completed (Enemy + Animation + Attack Effect)
 
 ---
-
-If you want, I can also create:
-
-* 🔥 A more professional GitHub README layout
-* 🎨 A clean markdown version ready to copy-paste
-* 🧙 A cool RPG-themed README with ASCII dungeon art
-* 📸 A version with screenshot sections
-
-Tell me which style you prefer 👌
